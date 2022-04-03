@@ -6,7 +6,7 @@
     "description": "Userscript for oggex that extracts embedded sounds from images",
     "developer": {
         "name": "Joseph Diza",
-        "url": "https://github.com/jmdaemon/youtube-archive"
+        "url": "https://github.com/jmdaemon/oggex-js"
     },
     "homepage_url": "https://github.com/jmdaemon/oggex-js",
     "content_scripts": [{
