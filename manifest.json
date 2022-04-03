@@ -1,0 +1,16 @@
+{
+    "manifest_version": 2,
+    "name": "OggexJS",
+    "version": "0.1.0",
+    "author": "Joseph Diza <josephm.diza@gmail.com>",
+    "description": "Userscript for oggex that extracts embedded sounds from images",
+    "developer": {
+        "name": "Joseph Diza",
+        "url": "https://github.com/jmdaemon/youtube-archive"
+    },
+    "homepage_url": "https://github.com/jmdaemon/oggex-js",
+    "content_scripts": [{
+        "matches": ["*://*.desuarchive.com/*"],
+        "js": ["src/oggex.js"]
+    }]
+}
