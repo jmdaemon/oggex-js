@@ -1,0 +1,19 @@
+{
+  "name": "oggex-js",
+  "version": "0.1.0",
+  "description": "Userscript for oggex that extracts embedded sounds from images",
+  "main": "src/oggex.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jmdaemon/oggex-js.git"
+  },
+  "author": "Joseph Diza <josephm.diza@gmail.com> (https://jmdaemon.github.io/website)",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/jmdaemon/oggex-js/issues"
+  },
+  "homepage": "https://github.com/jmdaemon/oggex-js#readme"
+}
