@@ -53,6 +53,7 @@ function main() {
   var size = fileSize(image);
   console.log(size);
 
+  // Get sound file offset
   var soundOffset;
   soundOffset = image.search("OggS");
   console.log(soundOffset);
@@ -78,11 +79,31 @@ function main() {
     var unembeddedImage = image.slice(0, imageOffset);
 
     // Retrieve the sound
-    // The original sound's dimensions are soundOffset - size
+    // The original sound's dimensions are imageOffset - size
     var sound = image.slice(soundOffset, size);
 
-    // Play the sound
-    var audio = new Audio(sound);
+    // Create the audio player
+
+    // Parse the sound
+    var audio = new Audio();
+    audio.src = sound;
+
+    // Create the player
+    var div = document.createElement('div');
+    div.class = 'container';
+
+    // Create video
+    var video = document.createElement('video');
+    video.id = 'audio01';
+    video.autoplay = '';
+    video.controls  = '';
+
+    // Add the video to the player
+    div.appendChild(video);
+    document.body.insertBefore(getImage(getPostImages()), div);
+     //< div class = 'container'>
+    //<video id = 'audio1' autoplay="" controls="" ></video>
+  //</div>
     audio.play();
   }
 }
