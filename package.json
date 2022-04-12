@@ -2,7 +2,7 @@
   "name": "oggex-js",
   "version": "0.1.0",
   "description": "Userscript for oggex that extracts embedded sounds from images",
-  "main": "src/oggex.js",
+  "main": "oggex.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/jmdaemon/oggex-js/issues"
   },
-  "homepage": "https://github.com/jmdaemon/oggex-js#readme"
+  "homepage": "https://github.com/jmdaemon/oggex-js#readme",
+  "dependencies": {
+    "ffi-napi": "^4.0.3"
+  }
 }
