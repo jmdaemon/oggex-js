@@ -42,13 +42,18 @@ function getImageOffset(image) {
   return offset;
 }
 
-// Play audio in embedded images
-function main() {
+function retrieveImage() {
   var imageURL = getImage(getPostImages());
   console.log(imageURL);
 
   var image = download(imageURL);
   console.log(image);
+  return image;
+}
+
+// Play audio in embedded images
+function main() {
+  var image = retrieveImage();
 
   var size = fileSize(image);
   console.log(size);
