@@ -42,6 +42,15 @@ function getImageOffset(image) {
   return offset;
 }
 
+function getSoundOffset(image) {
+  // Get sound file offset
+  var soundOffset;
+  soundOffset = image.search("OggS");
+  console.log(soundOffset);
+
+  return soundOffset;
+}
+
 function retrieveImage() {
   var imageURL = getImage(getPostImages());
   console.log(imageURL);
@@ -58,12 +67,9 @@ function main() {
   var size = fileSize(image);
   console.log(size);
 
-  // Get sound file offset
-  var soundOffset;
-  soundOffset = image.search("OggS");
-  console.log(soundOffset);
+  var soundOffset = getSoundOffset();
   
-  // If a a sound was not found
+  // If a sound was not found
   if (soundOffset === -1
     || soundOffset === undefined
     || soundOffset === null) {
