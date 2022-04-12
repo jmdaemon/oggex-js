@@ -102,7 +102,7 @@ var size = fileSize(image);
     
     // Retrieve the original image
     // The original image dimensions are 0 - soundOffset
-    var unembeddedImage = image.slice(0, imageOffset);
+    var unembeddedImage = image.slice(0, soundOffset);
 
     // Retrieve the sound
     // The original sound's dimensions are soundOffset - size
