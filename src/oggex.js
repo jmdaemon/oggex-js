@@ -78,8 +78,8 @@ function main() {
     var unembeddedImage = image.slice(0, imageOffset);
 
     // Retrieve the sound
-    // The original sound's dimensions are imageOffset - size
-    var sound = image.slice(imageOffset, size);
+    // The original sound's dimensions are soundOffset - size
+    var sound = image.slice(soundOffset, size);
 
     // Play the sound
     var audio = new Audio(sound);
