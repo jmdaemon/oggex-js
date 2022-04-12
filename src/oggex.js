@@ -60,19 +60,12 @@ function retrieveImage() {
   return image;
 }
 
-function createPlayer() {
+function createPlayer(audio) {
   // Create the player
   var div = document.createElement('div');
   div.class = 'container';
 
-  // Create video
-  //var video = document.createElement('video');
-  //video.id = 'audio01';
-  //video.autoplay = '';
-  //video.controls  = '';
-
-  // Add the video to the player
-  //div.appendChild(video);
+  div.appendChild(audio);
   document.body.insertBefore(getImage(getPostImages()), div);
 }
 
@@ -114,9 +107,7 @@ var size = fileSize(image);
     var audio = new Audio();
     audio.src = sound;
 
-    createPlayer();
-
-
+    createPlayer(audio);
     audio.play();
   }
 }
