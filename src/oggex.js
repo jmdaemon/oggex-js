@@ -75,11 +75,11 @@ function main() {
     console.log(`Image Offset: ${imageOffset}`);
     
     // Retrieve the original image
-    // The original image dimensions are 0 - imageOffset
+    // The original image dimensions are 0 - soundOffset
     var unembeddedImage = image.slice(0, imageOffset);
 
     // Retrieve the sound
-    // The original sound's dimensions are imageOffset - size
+    // The original sound's dimensions are soundOffset - size
     var sound = image.slice(soundOffset, size);
 
     // Create the audio player
@@ -101,9 +101,7 @@ function main() {
     // Add the video to the player
     div.appendChild(video);
     document.body.insertBefore(getImage(getPostImages()), div);
-     //< div class = 'container'>
-    //<video id = 'audio1' autoplay="" controls="" ></video>
-  //</div>
+
     audio.play();
   }
 }
