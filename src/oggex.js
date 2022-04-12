@@ -33,6 +33,15 @@ function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
+function getImageOffset(image) {
+  var offset = 0;
+  offset = image.search("PNG");
+  if (offset == 0) {
+    console.log("File type not found");
+  }
+  return offset;
+}
+
 // Play audio in embedded images
 function main() {
   var imageURL = getImage(getPostImages());
@@ -43,6 +52,34 @@ function main() {
 
   var size = fileSize(image);
   console.log(size);
+
+  var soundOffset;
+  soundOffset = image.search("OggS");
+  
+  // If a a sound was not found
+  if (soundOffset === -1
+    || soundOffset === undefined
+    || soundOffset === null) {
+    // Exit
+    return;
+  }
+
+  // Else if a sound was found
+  if (soundOffset) {
+    // Get the image offset
+    var imageOffset = getImageOffset(image);
+    
+    // Retrieve the original image
+    // The original image dimensions are 0 - imageOffset
+    var unembeddedImage;
+
+    // Retrieve the sound
+    // The original sound's dimensions are imageOffset - size
+    var sound;
+
+    // Play the sound
+    
+  }
 }
 
 main();
