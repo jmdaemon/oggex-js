@@ -1,28 +1,69 @@
-var ffi = require('ffi-napi');
 
-// Import oggex libraries
 
-const OGGEX_DIR = 'lib/oggex';
-const LIB_DIR = `${OGGEX_DIR}/build/debug`;
-const AUDIO_DIR = `${LIB_DIR}/src/audio`;
-const UTILITY_DIR = `${LIB_DIR}/src/utility`;
+// If on anonpone
+// Get post images
+// Check if post image has sounds
 
-var libutility = ffi.Library('/usr/local/lib/libutility.so', {});
+// Anonpone
 
-// Utility
-var libaudio = ffi.Library(`${UTILITY_DIR}/libaudio.so`, {
-});
+// Get the post images
+function getPostImages() {
+	return document.querySelectorAll('[id="postImage"]');
+}
 
-var libcmd = ffi.Library(`${UTILITY_DIR}/libcmd.so`, {
-});
+// Get the url of the post image
+function getImage(postImage) {
+	return postImage[0]['src'];
+}
 
-var libfile = ffi.Library(`${UTILITY_DIR}/libfile.so`, {
-});
+function downloadImage(url) {
+  var response;
+  var request = new XMLHttpRequest();
+  request.open("GET",url,true);
+  request.send();
 
-var libimage = ffi.Library(`${UTILITY_DIR}/libimage.so`, {
-});
+  request.onreadystatechange =
+    function() {
+      if (request.readyState== 4
+          && request.status == 200) {
+              response = request.responseText;
+          }
+       }
+  console.log(response);
+  return response;
+}
 
-// Audio
-var liboggex = ffi.Library(`${AUDIO_DIR}/liboggex.so`, {
-});
+// Return the size of a file
+function fileSize(file) {
+  return file.length;
+}
 
+// Block execution for some time
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+function main() {
+  var imageURL = getImage(getPostImages());
+  console.log(imageURL);
+
+  //var image = downloadImage(imageURL);
+  var response;
+  var request = new XMLHttpRequest();
+  request.open("GET",imageURL,true);
+  request.send();
+
+  request.onreadystatechange =
+    function() {
+      if (request.readyState== 4
+          && request.status == 200) {
+              response = request.responseText;
+          }
+       }
+  console.log(response);
+  console.log(image);
+  var size = fileSize(image);
+  return size;
+}
+
+main();
