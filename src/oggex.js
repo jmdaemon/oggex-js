@@ -60,6 +60,13 @@ function retrieveImage() {
   return image;
 }
 
+function parseSound(sound) {
+  var audio = new Audio();
+  audio.src = sound;
+  audio.play();
+  return audio;
+}
+
 function createPlayer(audio) {
   // Create the player
   var div = document.createElement('div');
@@ -101,14 +108,10 @@ var size = fileSize(image);
     // The original sound's dimensions are soundOffset - size
     var sound = image.slice(soundOffset, size);
 
+    var audio = parseSound(sound);
+
     // Create the audio player
-
-    // Parse the sound
-    var audio = new Audio();
-    audio.src = sound;
-
     createPlayer(audio);
-    audio.play();
   }
 }
 
