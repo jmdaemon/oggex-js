@@ -55,6 +55,7 @@ function main() {
 
   var soundOffset;
   soundOffset = image.search("OggS");
+  console.log(soundOffset);
   
   // If a a sound was not found
   if (soundOffset === -1
@@ -63,22 +64,26 @@ function main() {
     // Exit
     return;
   }
+  console.log("Sound was found");
+  console.log(`Sound Offset: ${soundOffset}`);
 
   // Else if a sound was found
   if (soundOffset) {
     // Get the image offset
     var imageOffset = getImageOffset(image);
+    console.log(`Image Offset: ${imageOffset}`);
     
     // Retrieve the original image
     // The original image dimensions are 0 - imageOffset
-    var unembeddedImage;
+    var unembeddedImage = image.slice(0, imageOffset);
 
     // Retrieve the sound
     // The original sound's dimensions are imageOffset - size
-    var sound;
+    var sound = image.slice(imageOffset, size);
 
     // Play the sound
-    
+    var audio = new Audio(sound);
+    audio.play();
   }
 }
 
